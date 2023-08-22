@@ -3,8 +3,9 @@ const {createUser, getUser, getUsers, updateUser, deleteUser } = require("../con
 
 const router = express.Router()
 
-router.route("/").createUser().getUsers()
-router.route("/:id").getUser().updateUser().deleteUser()
+router.route("/").post(createUser)
+router.route("/").get(getUsers)
+router.route("/:id").get(getUser).put(updateUser).delete(deleteUser)
 
 
 module.exports = router;
